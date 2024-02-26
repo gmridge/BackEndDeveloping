@@ -1,0 +1,15 @@
+meta {
+  name: Headers
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3000/users/headers
+  body: none
+  auth: none
+}
+
+headers {
+  x-iod: hello world
+}

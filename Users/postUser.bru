@@ -1,0 +1,17 @@
+meta {
+  name: postUser
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/users/
+  body: json
+  auth: none
+}
+
+body:json {
+  {"name": "Barak Obama",
+   "location": "USA"}
+  
+}

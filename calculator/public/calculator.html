@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <title>Calculator Example</title>
+</head>
+
+<body>
+    <form>
+        <button id="add">Add</button>
+        <button id="subtract">Subtract</button>
+        <button id="divide">Divide</button>
+        <button id="multiply">Multiple</button>
+        <input type="number" id="num1" />
+        <input type="number" id="num2" />
+        <div>Result
+            <span id="result"> </span>
+        </div>
+    </form>
+</body>
+<script>
+    const calculate = (operation) => {
+        return (el, ev) => {
+        let num1 = parseInt(document.getElementById("num1").value)
+        let num2 = parseInt(document.getElementById("num2").value)
+
+        fetch(`/calculator/${operation}?num1=${num1}&num2=${num2}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML =
+                    data.result;
+            })}
+    }
+
+    document.getElementsByTagName("form")[0].addEventListener('submit', (ev) => ev.preventDefault())
+    document.getElementById("add").addEventListener('click', calculate ('add'))
+    document.getElementById("subtract").addEventListener('click', calculate ('subtract'))
+    document.getElementById("divide").addEventListener('click', calculate ('divide'))
+    document.getElementById("multiply").addEventListener('click', calculate ('multiply'))
+
+>>>>>>> refs/remotes/origin/main
+</script>
+
+</html>
